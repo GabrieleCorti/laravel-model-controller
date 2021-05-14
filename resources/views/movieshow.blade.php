@@ -68,6 +68,7 @@
         <div class="flex-center position-ref full-height">
             <h1>{{$movie->titolo}}</h1><br>
             <p>Director: {{$movie->author}}</p>
+            <a href="{{route('movie.index')}}">torna a casa</a>
         </div>
     </body>
 </html>
