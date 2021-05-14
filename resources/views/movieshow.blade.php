@@ -28,6 +28,7 @@
                 align-items: center;
                 display: flex;
                 justify-content: center;
+                flex-direction: column;
             }
 
             .position-ref {
@@ -65,12 +66,8 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-           <ul>
-               @foreach ($movies as $movie)
-                   <li>{{$movie->titolo}}</li>
-                   <a href="{{route('movie.show', ['movie' => $movie->id])}}">more info</a>
-               @endforeach
-           </ul>
+            <h1>{{$movie->titolo}}</h1><br>
+            <p>Director: {{$movie->author}}</p>
         </div>
     </body>
 </html>
