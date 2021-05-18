@@ -24,8 +24,8 @@ class movieController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   
+        return view('movieCreate');
     }
 
     /**
@@ -36,7 +36,14 @@ class movieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $newMovie = new movie();
+        $newMovie->titolo = $data['titolo'];
+        $newMovie->author = $data['regista'];
+
+        $newMovie->save();
+
+        return redirect()->route('movie.create');
     }
 
     /**
