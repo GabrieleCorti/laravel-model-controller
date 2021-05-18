@@ -16,13 +16,12 @@
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
-                height: 100vh;
                 margin: 0;
             }
 
-            .full-height {
-                height: 100vh;
-            }
+            /* .full-height {
+
+            } */
 
             .flex-center {
                 align-items: center;
@@ -65,7 +64,7 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref">
             <h1>{{$movie->titolo}}</h1><br>
             <p>Director: {{$movie->author}}</p>
             <a href="{{route('movie.index')}}">torna a casa</a>

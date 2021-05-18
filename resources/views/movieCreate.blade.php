@@ -16,13 +16,12 @@
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
-                height: 100vh;
                 margin: 0;
             }
 
-            .full-height {
+            /* .full-height {
                 height: 100vh;
-            }
+            } */
 
             .flex-center {
                 align-items: center;
@@ -83,7 +82,16 @@
                    <button type="submit">Aggiungi Nuovo Film</button>
                </div>
             </form>
-
+            <a href="{{route('movie.index')}}">Tortna a Tutti i film</a>
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
         </div>
     </body>
 </html>

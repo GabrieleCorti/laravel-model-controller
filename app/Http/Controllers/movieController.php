@@ -35,12 +35,16 @@ class movieController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        /* $request->validate([
+            'titolo'=> 'required|max:100|string',
+            'author'=> 'required|max:50|string',
+        ]); */
         $data = $request->all();
         $newMovie = new movie();
         $newMovie->titolo = $data['titolo'];
         $newMovie->author = $data['regista'];
-
+        
         $newMovie->save();
 
         return redirect()->route('movie.create');
@@ -87,8 +91,11 @@ class movieController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(movie $movie)
+    {   
+        /* dd($movie); */
+        $movie->delete();
+
+        return redirect()->route('movie.index');
     }
 }

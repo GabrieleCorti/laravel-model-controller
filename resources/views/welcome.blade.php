@@ -61,16 +61,36 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .mb {
+                margin-bottom: 30px 
+            }
+
+            li {
+                margin-top: 20px; 
+            }
+            
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-           <ul>
+            <div></div>
+            <ul>
+                <div>
+                   <a href="{{route('movie.create')}}"><button type="button">Aggiungi Film</button></a>
+               </div>
                @foreach ($movies as $movie)
-                   <li>{{$movie->titolo}}</li>
-                   <a href="{{route('movie.show', ['movie' => $movie->id])}}">more info</a>
+               <li>{{$movie->titolo}} {{$movie->id}}</li>
+               <a href="{{route('movie.show', ['movie' => $movie->id])}}">more info</a>
+               <div class="mb">
+                    <form action="{{route('movie.destroy', ['movie' => $movie->id])}}" method="post">
+                        @method("DELETE")
+                        @csrf
+                        <button type='submit'>Delete Film</button>
+                    </form>
+               </div>
                @endforeach
-           </ul>
+            </ul>
         </div>
     </body>
 </html>
